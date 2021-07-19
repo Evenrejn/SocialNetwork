@@ -1,0 +1,27 @@
+.main-content__posts {
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
+.main-content__posts__my-posts {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.main-content__posts-input {
+  display: block;
+  min-width: 650px;
+  min-height: 50px;
+  outline: none;
+  border: 1px solid darkgray;
+}
+
+.main-content__send-post {
+  margin-top: 10px;
+  padding: 5px 30px;
+  margin-left: 555px;
+  background-color: palevioletred;
+  outline: none;
+  border: none;
+  color: #fff;
+}

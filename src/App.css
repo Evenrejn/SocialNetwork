@@ -1,0 +1,114 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* .app-wrapper {
+  display: grid;
+  grid-template-areas: 
+  "header header"
+  "nav content";
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+  /* grid-gap: 10px; */
+/* }
+
+.header {
+  grid-area: header;
+}
+
+.header img {
+  width: 20px;
+}
+
+.nav {
+  grid-area: nav;
+}
+
+.content {
+  grid-area: content;
+} */
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+.wrapper {
+  background-color: #fff;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.wrapper-main {
+  display: flex;
+}
+
+.app-wrapper-content {
+  width: 100%;
+}
+
+
+/* 
+.main-content__page-img {
+  width: 900px;
+  height: 120px;
+  background-image: url("http://placehold.it/900x120/");
+}
+
+.wrap {
+  margin-top: 10px;
+}
+
+.main-content__avatar {
+  height: 80px;
+  width: 80px;
+  float: left;
+}
+
+.main-content__about-user {
+  margin-left: 105px;
+}
+
+.main-content__about-user-name {
+  font-weight: 400;
+  margin-bottom: 15px;
+} */

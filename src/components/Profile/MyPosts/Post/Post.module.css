@@ -1,0 +1,10 @@
+.main-content__posts-list {
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+.main-content__posts-img {
+  float: left;
+  margin-right: 20px;
+  border-radius: 50%;
+}
