@@ -2,21 +2,33 @@ import React from "react";
 import s from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
+import {
+  updateNewMessageBodyCreator,
+  sendMessageCreator,
+} from "../../redux/dialogs-reducer";
 
 const Dialogs = (props) => {
-  let dialogsElement = props.state.dialogs.map((d) => (
+  let state = props.store.getState().dialogsPage;
+
+  let dialogsElement = state.dialogs.map((d) => (
     <DialogItem name={d.name} id={d.id} />
   ));
 
-  let messagesElements = props.state.messages.map((m) => (
+  let messagesElements = state.messages.map((m) => (
     <Message message={m.message} />
   ));
 
+  let newMessageBody = state.newMessageBody;
+
   let send = React.createRef();
 
-  let sendMsg = () => {
-    let text = send.current.value;
-    alert("srgfffg");
+  let onSendMessageClick = () => {
+    props.store.dispatch(sendMessageCreator());
+  };
+
+  let onNewMessageChange = (e) => {
+    let body = e.target.value;
+    props.store.dispatch(updateNewMessageBodyCreator(body));
   };
 
   return (
@@ -27,15 +39,27 @@ const Dialogs = (props) => {
         <div className={s["dialogs__current-chat"]}>{messagesElements}</div>
       </div>
       <div className={s["main-content__msg"]}>
-        <input
+        {/* <input
           ref={send}
           className={s["main-content__posts-input"]}
           type="text"
           placeholder="your news..."
-        />
-        <button onClick={sendMsg} className={s["main-content__send-post"]}>
-          Send
-        </button>
+        /> */}
+        <div className={s["main-content__posts-input"]}>
+          <textarea
+            value={newMessageBody}
+            onChange={onNewMessageChange}
+            placeholder="Enter message"
+            cols="30"
+            rows="5"
+          ></textarea>
+        </div>
+        <div className="main-content__send-post">
+          <button onClick={onSendMessageClick}>Send</button>
+        </div>
+        {/* <button onClick={sendMsg} className={s["main-content__send-post"]}> */}
+        {/* Send
+        </button> */}
       </div>
     </div>
   );

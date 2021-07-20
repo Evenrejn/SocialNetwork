@@ -12,16 +12,15 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 
 function App(props) {
-
   return (
       <div className="wrapper">
           <Header />  
           <div className="wrapper-main">  
-              <Navbar state={props.state.friends}/>
+              <Navbar state={props.state.sidebar}/>
               <div className="app-wrapper-content">
                 <Route path='/dialogs' 
                 render={ () => <Dialogs 
-                state={props.state.dialogsPage} /> } />
+                store={props.store}/> } />
                 <Route path='/profile' 
                 render={ () => <Profile 
                 profilePage={props.state.profilePage} 

@@ -34,7 +34,6 @@ const Navbar = (props) => {
           </li>
         </ul>
       </nav>
-
       <p className={s["friends"]}>Friends</p>
       <div className={s["friends-wrap"]}>
         <div className={s["friends-item"]}>
