@@ -3,6 +3,7 @@ import s from "./Profile.module.css";
 import MyPosts from "./MyPosts/MyPosts";
 // import Post from "./MyPosts/Post/Post";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 const Profile = (props) => {
   return (
@@ -18,11 +19,7 @@ const Profile = (props) => {
           <p className={s["main-content__about-user-short"]}>Web Site</p>
         </div>
       </div>
-      <MyPosts
-        posts={props.profilePage.posts}
-        dispatch={props.dispatch}
-        newPostText={props.profilePage.newPostText}
-      />
+      <MyPostsContainer store={props.store} />
     </div>
   );
 };
