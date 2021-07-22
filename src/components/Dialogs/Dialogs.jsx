@@ -14,7 +14,7 @@ const Dialogs = (props) => {
     <Message message={m.message} key={m.id} />
   ));
 
-  let newMessageBody = state.newMessageBody; //
+  let newMessageBody = state.newMessageBody;
 
   let onSendMessageClick = () => {
     props.sendMessage();
@@ -23,7 +23,6 @@ const Dialogs = (props) => {
   let onNewMessageChange = (e) => {
     let body = e.target.value;
     props.updateNewMessageBody(body);
-    //props.store.dispatch(updateNewMessageBodyCreator(body));
   };
 
   return (
@@ -34,12 +33,6 @@ const Dialogs = (props) => {
         <div className={s["dialogs__current-chat"]}>{messagesElements}</div>
       </div>
       <div className={s["main-content__msg"]}>
-        {/* <input
-          ref={send}
-          className={s["main-content__posts-input"]}
-          type="text"
-          placeholder="your news..."
-        /> */}
         <div className={s["main-content__posts-input"]}>
           <textarea
             value={newMessageBody}
@@ -52,9 +45,6 @@ const Dialogs = (props) => {
         <div className="main-content__send-post">
           <button onClick={onSendMessageClick}>Send</button>
         </div>
-        {/* <button onClick={sendMsg} className={s["main-content__send-post"]}> */}
-        {/* Send
-        </button> */}
       </div>
     </div>
   );
