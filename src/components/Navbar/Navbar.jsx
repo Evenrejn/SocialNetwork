@@ -42,7 +42,7 @@ const Navbar = (props) => {
             src="http://placehold.it/40x40/"
             alt="A"
           />
-          <p className={s["friends-name"]}>{props.state[0].name}</p>
+          {/* <p className={s["friends-name"]}>{props.state[0].name}</p> */}
         </div>
         <div className={s["friends-item"]}>
           <img
@@ -50,7 +50,7 @@ const Navbar = (props) => {
             src="http://placehold.it/40x40/"
             alt="A"
           />
-          <p className={s["friends-name"]}>{props.state[1].name}</p>
+          {/* <p className={s["friends-name"]}>{props.state[1].name}</p> */}
         </div>
         <div className={s["friends-item"]}>
           <img
@@ -58,7 +58,7 @@ const Navbar = (props) => {
             src="http://placehold.it/40x40/"
             alt="A"
           />
-          <p className={s["friends-name"]}>{props.state[2].name}</p>
+          {/* <p className={s["friends-name"]}>{props.state[2].name}</p> */}
         </div>
       </div>
     </div>

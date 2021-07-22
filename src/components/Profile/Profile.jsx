@@ -19,7 +19,7 @@ const Profile = (props) => {
           <p className={s["main-content__about-user-short"]}>Web Site</p>
         </div>
       </div>
-      <MyPostsContainer store={props.store} />
+      <MyPostsContainer />
     </div>
   );
 };

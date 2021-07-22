@@ -13,18 +13,18 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 
 function App(props) {
+  
   return (
       <div className="wrapper">
           <Header />  
           <div className="wrapper-main">  
-              <Navbar state={props.state.sidebar}/>
+              {/* <Navbar state={props.state.sidebar}/> */}
+              <Navbar />
               <div className="app-wrapper-content">
                 <Route path='/dialogs' 
-                render={ () => <DialogsContainer 
-                store={props.store}/> } />
+                render={ () => <DialogsContainer /> } />
                 <Route path='/profile' 
-                render={ () => <Profile 
-                store={props.store}/> } />
+                render={ () => <Profile /> } />
               </div>
           </div> 
       </div>
