@@ -18,6 +18,11 @@ const Navbar = (props) => {
             </NavLink>
           </li>
           <li>
+            <NavLink to="/users" className={s["header__menu-list-item"]}>
+              Users
+            </NavLink>
+          </li>
+          <li>
             <NavLink to="/news" className={s["header__menu-list-item"]}>
               News
             </NavLink>

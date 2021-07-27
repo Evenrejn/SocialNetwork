@@ -12,9 +12,9 @@ import DialogsContainer from './components/Dialogs/DialogsContainer';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Users from './components/Users/Users';
 import UsersContainer from './components/Users/UsersContainer';
+import ProfileContainer from './components/Profile/ProfileContainer';
 
 function App(props) {
-  
   return (
       <div className="wrapper">
           <Header />  
@@ -25,7 +25,7 @@ function App(props) {
                 <Route path='/dialogs' 
                 render={ () => <DialogsContainer /> } />
                 <Route path='/profile' 
-                render={ () => <Profile /> } />
+                render={ () => <ProfileContainer /> } />
                 <Route path='/users' 
                 render={ () => <UsersContainer />} />
               </div>
