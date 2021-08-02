@@ -3,3 +3,29 @@
   width: 80px;
   float: left;
 }
+
+.main-content__about-user {
+  margin-left: 105px;
+}
+
+.main-content__about-user-name {
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.main-content__page-img {
+  width: 940px;
+  height: 120px;
+  /* background-image: url("http://placehold.it/900x120/"); */
+  background: no-repeat center/77% url("https://social-network.samuraijs.com/activecontent/images/users/2/user.jpg?v=0");
+}
+
+.wrap {
+  margin-top: 10px;
+}
+
+.main-content__avatar {
+  height: 80px;
+  width: 80px;
+  float: left;
+}

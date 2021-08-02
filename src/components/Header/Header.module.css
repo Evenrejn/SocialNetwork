@@ -1,10 +1,14 @@
 .header {
-    background-color: palevioletred;
-    min-height: 50px;
-    margin-top: 10px;
-  }
-  
+  background-color: palevioletred;
+  min-height: 50px;
+  margin-top: 10px;
+}
+
 .header__logo {
-    padding: 5px 5px 5px 10px;
-    float: left;
+  padding: 5px 5px 5px 10px;
+  float: left;
+}
+
+.loginBlock {
+  float: right;
 }
