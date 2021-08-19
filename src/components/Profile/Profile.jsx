@@ -10,7 +10,11 @@ const Profile = (props) => {
     <div className={s["main-content"]}>
       {/* <div className={s["main-content__page-img"]}></div>
       <div className={s.wrap}> */}
-      <ProfileInfo profile={props.profile} />
+      <ProfileInfo
+        profile={props.profile}
+        status={props.status}
+        updateStatus={props.updateStatus}
+      />
       {/* <div className={s["main-content__about-user"]}>
           <h3 className={s["main-content__about-user-name"]}>Your Name</h3>
           <p className={s["main-content__about-user-short"]}>Date of Birth:</p>
