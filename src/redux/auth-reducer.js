@@ -27,7 +27,7 @@ const authReducer = (state = initialState, action) => {
 
 export const setAuthUserData = (email, id, login, isAuth) => ({type: SET_USER_DATA, payload: {email, id, login, isAuth}});
 export const getAuthUserData = () => (dispatch) => {
-    authAPI.me().then((response) => {
+    return authAPI.me().then((response) => {
         if (response.data.resultCode === 0) {
           let { email, id, login } = response.data.data;
           dispatch(setAuthUserData(email, id, login, true));
@@ -36,15 +36,13 @@ export const getAuthUserData = () => (dispatch) => {
 }
 
 export const login = (email, password, rememberMe) => (dispatch) => {
-    let action = stopSubmit("login", {email: "Email is wrong"});
-    dispatch(action);
-    return;
+
     authAPI.login(email, password, rememberMe).then((response) => {
         if (response.data.resultCode === 0) {
             dispatch(getAuthUserData())
         } else {
-            // let action = stopSubmit("login", {email: "Email is wrong"});
-            // dispatch(action);
+            let message = response.data.messages.length > 0 ? response.data.messages[0] : "Some error";
+            dispatch(stopSubmit("login", {_error: message}));
         }
       });
 }
