@@ -1,4 +1,4 @@
-import React from "react";
+import React, {PureComponent} from "react";
 import Post from "./Post/Post";
 import s from "./MyPosts.module.css";
 import { Field, reduxForm } from "redux-form";
@@ -8,31 +8,9 @@ import {
 } from "../../../utils/validators/validators";
 import { Textarea } from "../../common/FormControls/FormControls";
 
-const MyPosts = (props) => {
-  let postsElements = props.posts.map((p) => (
-    <Post message={p.message} likesCount={p.likesCount} />
-  ));
-
-  let newPostElement = React.createRef();
-
-  let onAddPost = (values) => {
-    props.addPost(values.newPostText);
-  };
-
-  return (
-    <div>
-      <div className={s["main-content__posts"]}>
-        <p className={s["main-content__posts__my-posts"]}>My posts</p>
-        <AddNewPostFormRedux onSubmit={onAddPost} />
-      </div>
-      {postsElements}
-    </div>
-  );
-};
-
 const maxLength10 = maxLengthCreator(10);
 
-const AddNewPostForm = (props) => {
+let AddNewPostForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
       <Field
@@ -50,5 +28,29 @@ const AddNewPostForm = (props) => {
 const AddNewPostFormRedux = reduxForm({ form: "profileAddNewPostForm" })(
   AddNewPostForm
 );
+
+class MyPosts extends PureComponent {
+  render() {
+    let postsElements = [...this.props.posts].reverse().map((p) => (
+      <Post message={p.message} likesCount={p.likesCount} />
+    ));
+
+    let newPostElement = React.createRef();
+
+    let onAddPost = (values) => {
+      this.props.addPost(values.newPostText);
+    };
+
+    return (
+      <div>
+        <div className={s["main-content__posts"]}>
+          <p className={s["main-content__posts__my-posts"]}>My posts</p>
+          <AddNewPostFormRedux onSubmit={onAddPost} />
+        </div>
+        {postsElements}
+      </div>
+    );
+  }
+};
 
 export default MyPosts;
