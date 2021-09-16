@@ -3,17 +3,12 @@ import { connect } from "react-redux";
 import {
   follow,
   unfollow,
-  // setUsers,
   setCurrentPage,
-  // setTotalUsersCount,
-  // toggleIsFetching,
   toggleFollowingProgress,
   requestUsers,
 } from "../../redux/users-reducer";
-import axios from "axios";
 import Users from "./Users";
 import Preloader from "../common/preloader/Preloader";
-import { usersAPI } from "../../api/api";
 import withAuthRedirect from "../../hoc/withAuthRedirect";
 import { compose } from "redux";
 import {
@@ -23,7 +18,6 @@ import {
   getIsFetching,
   getCurrentPage,
   getFollowingInProgress,
-  // getUsersSuperSelector,
 } from "../../redux/users-selectors";
 
 class UsersContainer extends React.Component {

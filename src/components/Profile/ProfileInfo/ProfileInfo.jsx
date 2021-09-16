@@ -11,10 +11,6 @@ const ProfileInfo = (props) => {
   return (
     <>
       <div className={s["main-content__page-img"]}>
-        {/* <img
-          className={s["main-content__page-img"]}
-          src={props.profile.photos.large}
-        /> */}
       </div>
       <div className={s.wrap}>
         <div className={s["main-content__avatar"]}>
@@ -36,12 +32,6 @@ const ProfileInfo = (props) => {
 
           <div>{props.profile.lookingForAJob ? "rrrrrr" : "no"}</div>
 
-          {/* <img
-          src="https://cs8.pikabu.ru/images/previews_comm/2016-04_6/1461946865356198133.jpg"
-          width="80"
-          height="80"
-          alt="avatar"
-        /> */}
         </div>
       </div>
     </>

@@ -1,9 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import s from "./Users.module.css";
 import userPhoto from "../../assets/images/default_avatar.png";
 import { NavLink } from 'react-router-dom';
-import axios from "axios";
-import { usersAPI } from "../../api/api";
+import cn from "classnames";
 
 let Users = (props) => {
 
@@ -16,10 +15,34 @@ let Users = (props) => {
         pages.push(i);
     }
 
+    let portionSize = 5;
+
+    let portionCount = Math.ceil(pagesCount / portionSize);
+    let [portionNumber, setPortionNumber] = useState(1);
+    let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
+    let rightPortionPageNumber = portionNumber * portionSize;
+
     return (
         <div className={s["main-content"]}>
           <div>
-            {pages.map((p) => {
+            { portionNumber > 1 && 
+            <button onClick={() => ( setPortionNumber(portionNumber - 1) )}> PREV</button> }
+            {pages.filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
+            .map((p) => {
+              return <span 
+              className={ cn({
+                [s.selectedPage] : props.currentPage === p
+
+              }, s.pageNumber) }
+                key={p}
+                onClick={(e) => {
+                  props.onPageChanged(p);
+                }}>{p}</span>
+            })}
+            { portionCount > portionNumber &&
+              <button onClick={() => { setPortionNumber(portionNumber + 1) }}>NEXT</button>}
+
+            {/* {pages.map((p) => {
               return (
                 <span
                   className={props.currentPage === p && s["selectedPage"]}
@@ -30,7 +53,8 @@ let Users = (props) => {
                   {p}
                 </span>
               );
-            })}
+            })} */}
+
           </div>
           <h2>Users</h2>
           {props.users.map((u) => (

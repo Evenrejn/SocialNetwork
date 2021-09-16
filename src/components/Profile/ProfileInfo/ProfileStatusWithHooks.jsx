@@ -1,6 +1,5 @@
 import { React, useEffect, useState } from "react";
 import Preloader from "../../common/preloader/Preloader";
-import s from "./ProfileInfo.module.css";
 
 const ProfileStatusWithHooks = (props) => {
   let [editMode, setEditMode] = useState(false);
