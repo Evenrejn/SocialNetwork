@@ -32,7 +32,6 @@ let Users = (props) => {
               return <span 
               className={ cn({
                 [s.selectedPage] : props.currentPage === p
-
               }, s.pageNumber) }
                 key={p}
                 onClick={(e) => {
@@ -41,20 +40,6 @@ let Users = (props) => {
             })}
             { portionCount > portionNumber &&
               <button onClick={() => { setPortionNumber(portionNumber + 1) }}>NEXT</button>}
-
-            {/* {pages.map((p) => {
-              return (
-                <span
-                  className={props.currentPage === p && s["selectedPage"]}
-                  onClick={(e) => {
-                    props.onPageChanged(p);
-                  }}
-                >
-                  {p}
-                </span>
-              );
-            })} */}
-
           </div>
           <h2>Users</h2>
           {props.users.map((u) => (
