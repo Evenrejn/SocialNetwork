@@ -29,3 +29,7 @@
   width: 80px;
   float: left;
 }
+
+.main-photo {
+  max-width: 150px;
+}

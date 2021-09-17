@@ -30,10 +30,9 @@ const AddNewPostFormRedux = reduxForm({ form: "profileAddNewPostForm" })(
 );
 
 class MyPosts extends PureComponent {
-
   render() {
     let postsElements = [...this.props.posts].reverse().map((p) => (
-      <Post message={p.message} likesCount={p.likesCount} />
+      <Post key={p.id} message={p.message} likesCount={p.likesCount} />
     ));
 
     let newPostElement = React.createRef();
