@@ -19,7 +19,6 @@ let AddNewPostForm = (props) => {
         placeholder="Enter your post text"
         validate={[required, maxLength10]}
       />
-      {/* <button onClick={onAddPost} className={s["main-content__send-post"]}> */}
       <button>Add post</button>
     </form>
   );

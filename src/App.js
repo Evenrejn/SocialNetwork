@@ -11,6 +11,7 @@ import { compose } from "redux";
 import store from "./redux/redux-store";
 import {Provider} from 'react-redux';
 import {BrowserRouter} from 'react-router-dom';
+import { Redirect } from 'react-router';
 
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
 const ProfileContainer = React.lazy(() => import("./components/Profile/ProfileContainer"));
@@ -18,9 +19,17 @@ const UsersContainer = React.lazy(() => import("./components/Users/UsersContaine
 const LoginPage = React.lazy(() => import("./components/Login/Login"));
 
 class App extends React.Component {
+  catchAllUnhandledErrors = (promiseRejectionEvent) => {
+    alert("Some error");
+  }
 
   componentDidMount() {
     this.props.initializeApp();
+    window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("unhandledrejection", this.catchAllUnhandledErrors);
   }
 
   render() {
@@ -39,6 +48,8 @@ class App extends React.Component {
                 render={ () => <DialogsContainer /> } />
                 <Route path='/profile/:userId?' 
                 render={ () => <ProfileContainer /> } />
+                <Route exact path='/' 
+                render={ () => <Redirect from="/" to="/profile" /> } />
                 <Route path='/users' 
                 render={ () => <UsersContainer />} />
                 <Route path='/login' 

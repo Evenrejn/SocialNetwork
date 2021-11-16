@@ -29,7 +29,6 @@ const ProfileInfo = (props) => {
 
   return (
     <>
-      {/* <div className={s["main-content__page-img"]}> */}
       <div>
         <img className={s["main-photo"]} src={props.profile.photos.large || userPhoto}/>
         { props.isOwner && <input type={"file"} onChange={mainPhotoSelected}/>}

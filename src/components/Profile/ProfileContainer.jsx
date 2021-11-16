@@ -19,13 +19,6 @@ class ProfileContainer extends React.Component {
       userId = "18756";
     }
 
-    // if (!userId) {
-    //   userId = this.props.authorizedUserId;
-        // if (!userId) {
-        //   this.props.history.push("/login");
-        // }
-    // }
-
     this.props.getUserProfile(userId);
     this.props.getStatus(userId);
   }
@@ -37,7 +30,6 @@ class ProfileContainer extends React.Component {
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.props.match.params.userId !== prevProps.match.params.userId) {
       this.refreshProfile();
-      debugger;
     }
   }
 
@@ -65,5 +57,4 @@ let mapStateToProps = (state) => ({
 export default compose(
   connect(mapStateToProps, { getUserProfile, getStatus, updateStatus, savePhoto, saveProfile }),
   withRouter
-  // withAuthRedirect
 )(ProfileContainer);

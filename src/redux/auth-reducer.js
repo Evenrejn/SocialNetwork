@@ -10,7 +10,6 @@ let initialState = {
     login: null,
     isAuth: false,
     captchaUrl: null 
-    // isFetching: false,
 };
 
 const authReducer = (state = initialState, action) => {
